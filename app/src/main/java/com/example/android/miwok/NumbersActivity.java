@@ -28,7 +28,10 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-
+        LinearLayout rootView = findViewById(R.id.rootView);
+        TextView wordView = new TextView(this);
+        wordView.setText(words.get(0));
+        rootView.addView(wordView);
 
 
     }
