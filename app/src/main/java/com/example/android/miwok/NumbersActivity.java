@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,12 +28,26 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("eight");
         words.add("nine");
         words.add("ten");
-
+        // Find the root view so we can add child views to it
         LinearLayout rootView = findViewById(R.id.rootView);
-        TextView wordView = new TextView(this);
-        wordView.setText(words.get(0));
-        rootView.addView(wordView);
 
+
+        // Keep looping until we've reached the end of the list (which means keep looping
+        // as long as the current index position is less than the length of the list)
+        for (int index = 0; index < words.size(); index++) {
+
+            Log.v("NumbersActivity", "the index = " + index);
+
+            // Create a new TextView
+            TextView wordView = new TextView(this);
+
+            // Set the text to be word at the current index
+            wordView.setText(words.get(index));
+
+            // Add this TextView as another child to the root view of this layout
+            rootView.addView(wordView);
+
+        }
 
     }
 }
