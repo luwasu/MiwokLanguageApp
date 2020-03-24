@@ -12,10 +12,11 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         ArrayList<Word> words = new ArrayList<>();
 
+//        default way of using a constructor
 //        words.add("one");
 //        Word w = new Word("one", "lutti");
         words.add(new Word("one", "lutti"));
@@ -26,8 +27,8 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("six", "temmokka"));
         words.add(new Word("seven", "kenekaku"));
         words.add(new Word("eight", "kawinta"));
-        words.add(new Word("nine", "wo`e"));
-        words.add(new Word("ten", "na`aacha"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten","na’aacha"));
 
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
@@ -39,7 +40,7 @@ public class NumbersActivity extends AppCompatActivity {
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
+        // word_listLayout file.
         ListView listView = findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
