@@ -13,17 +13,24 @@ import java.util.ArrayList;
  * {@link WordAdapter} is an {@link ArrayAdapter} that can provide the layout for each list item
  * based on a data source, which is a list of {@link Word} objects.
  */
-public class WordAdapter extends ArrayAdapter<Word>  {
+public class WordAdapter extends ArrayAdapter<Word> {
 
     /**
      * Create a new {@link WordAdapter} object.
      *
      * @param context is the current context (i.e. Activity) that the adapter is being created in.
-     * @param words is the list of {@link Word}s to be displayed.
+     * @param words   is the list of {@link Word}s to be displayed.
      */
     public WordAdapter(Context context, ArrayList<Word> words) {
         super(context, 0, words);
     }
+
+//    That adapter has a constructor and a getView() method to describe the translation between
+//    the data item and the View to display.  getView() is the method that returns the actual view
+//    used as a row within the ListView at a particular position. Another method used is getItem()
+//    which is already present in the ArrayAdapter class and its task is to simply get the data item
+//            associated with the specified position in the data set which is associated with that
+//            ArrayAdapter.
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

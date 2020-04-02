@@ -1,18 +1,25 @@
 package com.example.android.miwok;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PhrasesActivity extends AppCompatActivity {
+
+    @BindView(R.id.list)
+    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+        ButterKnife.bind(this);
 
         ArrayList<Word> words = new ArrayList<>();
 
@@ -25,7 +32,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
         words.add(new Word("I’m coming.", "әәnәm"));
         words.add(new Word("Let’s go.", "yoowutis"));
-        words.add(new Word("Come here","әnni'nem"));
+        words.add(new Word("Come here", "әnni'nem"));
 
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
