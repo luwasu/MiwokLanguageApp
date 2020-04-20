@@ -21,22 +21,48 @@ package com.example.android.miwok;
  */
 public class Word {
 
-    /** Default translation for the word */
+    /**
+     * Default translation for the word
+     */
     private String mDefaultTranslation;
 
-    /** Miwok translation for the word */
+    /**
+     * Miwok translation for the word
+     */
     private String mMiwokTranslation;
+
+    /**
+     * the image for the word
+     */
+    private int mImageResourceID = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     /**
      * Create a new Word object.
      *
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
-     * @param miwokTranslation is the word in the Miwok language
+     * @param miwokTranslation   is the word in the Miwok language
      */
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+    }
+
+    /**
+     * Create a new Word object.
+     *
+     * @param defaultTranslation is the word in a language that the user is already familiar with
+     *                           (such as English)
+     * @param miwokTranslation   is the word in the Miwok language
+     * @param imageResourceID    is the image Resource
+     */
+
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceID) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceID = imageResourceID;
     }
 
     /**
@@ -51,6 +77,20 @@ public class Word {
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
+    }
+
+    /**
+     * Get the image.
+     */
+    public int getImageResourceID() {
+        return mImageResourceID;
+    }
+
+    /**
+     * Returns whether or not there is an image for this word.
+     */
+    public boolean hasImage() {
+        return mImageResourceID != NO_IMAGE_PROVIDED;
     }
 
 }
