@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 
 /**
@@ -17,21 +19,21 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
 
     /**
+     * Resource ID for the background color for this list of words
+     */
+    private int mColorResourceId;
+
+    /**
      * Create a new {@link WordAdapter} object.
      *
-     * @param context is the current context (i.e. Activity) that the adapter is being created in.
-     * @param words   is the list of {@link Word}s to be displayed.
+     * @param context         is the current context (i.e. Activity) that the adapter is being created in.
+     * @param words           is the list of {@link Word}s to be displayed.
+     * @param colorResourceId is the resource ID for the background color for this list of words
      */
-    public WordAdapter(Context context, ArrayList<Word> words) {
+    public WordAdapter(Context context, ArrayList<Word> words, int colorResourceId) {
         super(context, 0, words);
+        mColorResourceId = colorResourceId;
     }
-
-//    That adapter has a constructor and a getView() method to describe the translation between
-//    the data item and the View to display.  getView() is the method that returns the actual view
-//    used as a row within the ListView at a particular position. Another method used is getItem()
-//    which is already present in the ArrayAdapter class and its task is to simply get the data item
-//            associated with the specified position in the data set which is associated with that
-//            ArrayAdapter.
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -57,19 +59,25 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // the default TextView.
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
-
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
-        ImageView imageView = listItemView.findViewById(R.id.image);
-
+        // Find the ImageView in the list_item.xml layout with the ID image.
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
+        // Check if an image is provided for this word or not
         if (currentWord.hasImage()) {
-            // Get the image resource ID from the current AndroidFlavor object and
-            // set the image to iconView
+            // If an image is available, display the provided image based on the resource ID
             imageView.setImageResource(currentWord.getImageResourceID());
-        }
-        else{
+            // Make sure the view is visible
+            imageView.setVisibility(View.VISIBLE);
+        } else {
+            // Otherwise hide the ImageView (set visibility to GONE)
             imageView.setVisibility(View.GONE);
         }
 
+        // Set the theme color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        // Set the background color of the text container View
+        textContainer.setBackgroundColor(color);
 
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
