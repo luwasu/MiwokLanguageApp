@@ -34,9 +34,6 @@
             android:paddingLeft="16dp"
             android:orientation="vertical">
 
-            <!--For more information or more attributes of tools namespace which is created
-                by Android, visit,
-                https://developer.android.com/studio/write/tool-attributes .-->
 
             <TextView
                 android:id="@+id/miwok_text_view"
@@ -64,9 +61,8 @@
         <ImageView
             android:id="@+id/play_button"
             android:src="@drawable/ic_play_arrow"
-            android:text="Play"
-            android:layout_marginRight="16dp"
-            android:layout_alignParentRight="true"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_width="24dp"
             android:layout_height="24dp" />
