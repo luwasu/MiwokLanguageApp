@@ -4,7 +4,6 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -15,10 +14,14 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    /** Handles playback of all the sound files */
+    /**
+     * Handles playback of all the sound files
+     */
     private MediaPlayer mMediaPlayer;
 
-    /** Handles audio focus when playing a sound file */
+    /**
+     * Handles audio focus when playing a sound file
+     */
     private AudioManager mAudioManager;
 
     /**

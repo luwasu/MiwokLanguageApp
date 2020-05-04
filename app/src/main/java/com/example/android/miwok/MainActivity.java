@@ -22,21 +22,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 
 public class MainActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.numbers)
-    TextView numbers;
-    @BindView(R.id.family)
-    TextView family;
-    @BindView(R.id.colors)
-    TextView colors;
-    @BindView(R.id.phrases)
-    TextView phrases;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
 
         // Find the View that shows the numbers category
         TextView numbers = findViewById(R.id.numbers);

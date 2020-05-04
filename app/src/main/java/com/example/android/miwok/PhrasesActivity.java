@@ -12,9 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class PhrasesActivity extends AppCompatActivity {
 
     /** Handles playback of all the sound files */

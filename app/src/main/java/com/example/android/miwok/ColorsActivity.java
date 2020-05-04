@@ -12,29 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class ColorsActivity extends AppCompatActivity {
 
-    /** Handles playback of all the sound files */
+    /**
+     * Handles playback of all the sound files
+     */
     private MediaPlayer mMediaPlayer;
 
-    /** Handles audio focus when playing a sound file */
-    private AudioManager mAudioManager;
-
     /**
-     * This listener gets triggered when the {@link MediaPlayer} has completed
-     * playing the audio file.
+     * Handles audio focus when playing a sound file
      */
-    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
-        @Override
-        public void onCompletion(MediaPlayer mediaPlayer) {
-            // Now that the sound file has finished playing, release the media player resources.
-            releaseMediaPlayer();
-        }
-    };
-
+    private AudioManager mAudioManager;
     /**
      * This listener gets triggered whenever the audio focus changes
      * (i.e., we gain or lose audio focus because of another app or device).
@@ -61,6 +49,17 @@ public class ColorsActivity extends AppCompatActivity {
                 // Stop playback and clean up resources
                 releaseMediaPlayer();
             }
+        }
+    };
+    /**
+     * This listener gets triggered when the {@link MediaPlayer} has completed
+     * playing the audio file.
+     */
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            // Now that the sound file has finished playing, release the media player resources.
+            releaseMediaPlayer();
         }
     };
 
